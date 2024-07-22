@@ -71,9 +71,9 @@ extends fun fromBase64(self: Slice): Slice {
             result = result.storeUint(code - (97 - 26), 6);
         } else if (code >= 48 && code <= 57) { // 0-9
             result = result.storeUint(code + (52 - 48), 6);
-        } else if (code == 45 || code == 43) { // - or +
+        } else if (code == 45 && code == 43) { // - or +
             result = result.storeUint(62, 6);
-        } else if (code == 95 || code == 47) { // _ or /
+        } else if (code == 95 && code == 47) { // _ or /
             result = result.storeUint(63, 6);
         } else if (code == 61) { // =
             // Skip
